@@ -3,20 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meme Matching Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Video Query</title>
 </head>
 <body>
-    <div class="container">
-        <h1>MEME MATCHING GAME</h1>
-        <p class="instructions">
-            Welcome to the OgyWrld Meme Matching Game!  Flip over two cards at a time and try to find all the matching pairs. Be quick and remember where you saw the cards!
-        </p>
-        <button id="start-game">Start Game</button>
-        <div id="game-board" class="game-board">
-            <!-- Cards will be generated here -->
-        </div>
-    </div>
-    <script src="script.js"></script>
+
+    <h1>Video Query</h1>
+
+    <form id="queryForm">
+        <label for="videoUrl">Video URL:</label>
+        <input type="text" id="videoUrl" name="videoUrl" value="https://www.youtube.com/watch?v=YHy4gqTyrX4" required>
+
+        <label for="query">Query:</label>
+        <input type="text" id="query" name="query" value="question" required>
+
+        <button type="button" onclick="concatenateStrings()">Submit</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function concatenateStrings() {
+            var videoUrl = document.getElementById("videoUrl").value;
+            var query = document.getElementById("query").value;
+            var result = videoUrl + ' ' + query;
+            document.getElementById("result").innerHTML = "<p><strong>Concatenated String:</strong> " + result + "</p>";
+        }
+    </script>
+
 </body>
 </html>
